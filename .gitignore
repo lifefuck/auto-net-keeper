@@ -1,0 +1,4 @@
+*.zip
+.daemon.pid
+daemon.log
+daemon.out

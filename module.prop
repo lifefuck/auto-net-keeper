@@ -1,0 +1,6 @@
+id=auto_net_keeper
+name=Auto Net Keeper
+version=1.0
+versionCode=1
+author=life
+description=每3分钟自动打开数据流量与WiFi，支持KernelSU模块开关热启停。
