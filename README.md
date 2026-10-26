@@ -1,22 +1,20 @@
 # Auto Net Keeper
 
-适用于 KernelSU / APatch / Magisk 的自动网络保持器模块。
+一个简单的 Magisk / KernelSU / APatch 模块。主要用来防止手机息屏或后台休眠时断网，每 3 分钟自动补开一次 WiFi 和移动数据。
 
-## 功能特性
-- **周期开启**：后台每 3 分钟自动开启系统 WiFi 与移动数据流量。
-- **热开关支持**：无需重启手机，在 KernelSU 管理器中开启/关闭模块即可秒级热启停后台循环。
-- **卸载自愈**：卸载模块后守护进程自动退出，不残留无用后台与垃圾文件。
-- **日志保护**：自带日志轮转机制，控制在 50KB 以内，不挤占存储空间。
+## 功能
 
-## 运作原理
-- **网络控制**：底层调用 `svc wifi enable` / `cmd wifi set-wifi-enabled enabled` 与 `svc data enable` 启用网络。
-- **热开关监听**：以 5 秒轻量步长轮询监听 `/data/adb/modules/auto_net_keeper/disable` 状态。当检测到 `disable` 文件存在时进入挂起休眠；一旦重新开启立刻热恢复。
+- 每 3 分钟自动开一次 WiFi 和移动数据（底层调用 `svc wifi enable` / `svc data enable`）。
+- 支持在管理器里随开随关，关掉模块后台脚本就暂停，不需要重启手机。
+- 日志限制在 50KB 以内，不会无限写入占空间。
+- 卸载模块后后台进程自动退出，不留残留。
 
-## 安装方式
-1. 在 Releases 中下载 `auto-net-keeper-v1.0.zip`。
-2. 打开 KernelSU / APatch / Magisk 管理器。
-3. 进入「模块」页面，选择从本地安装。
-4. 按音量上键确认安装，安装完成后重启手机生效。
+## 安装
 
-## 维护者
-- 作者: life
+1. 在 Releases 下载打包好的 zip 模块。
+2. 打开 KernelSU / APatch / Magisk 管理器选择本地安装。
+3. 按音量键确认，刷完重启手机即可。
+
+## 作者
+
+- life
